@@ -1,55 +1,47 @@
-# 📈 Sentiment Snipe: A FinBERT-Powered Stock Trading Bot
+# 📈 Sentiment Snipe: AI-Powered Stock Trading Bot using FinBERT, Alpaca & LumiBot
 
-Sentiment Snipe is an intelligent trading bot that analyzes the **sentiment of real-time stock news** using **FinBERT** and automatically places **BUY/SELL** orders through **Alpaca's trading API**. The bot makes precise decisions by "sniping" high-confidence trades based on positive or negative news, making it ideal for sentiment-driven momentum trading.
+**Sentiment Snipe** is a smart stock trading bot that uses real-time financial news and AI to decide **when to BUY or SELL stocks**. Powered by **FinBERT** for sentiment analysis, **Alpaca** for brokerage, and **LumiBot** for live and backtest-ready trading strategy design — this project bridges the gap between NLP and algorithmic trading.
 
 ---
 
 ## 🚀 Features
 
-- 🧠 **FinBERT-Powered Sentiment Analysis**  
-  Uses `ProsusAI/finbert` transformer to evaluate financial news sentiment (positive, negative, neutral).
+- 🧠 **FinBERT-Based Sentiment Analysis**  
+  Uses a finance-specific BERT model (`ProsusAI/finbert`) to classify news into positive, negative, or neutral sentiment.
 
-- 🔍 **Live News Integration**  
-  Pulls the latest headlines for a selected stock using Alpaca’s `get_news` API.
+- 📰 **Live Financial News Feed**  
+  Automatically fetches headlines for a given stock from Alpaca's news API.
 
-- 💹 **Auto-Trading with Alpaca**  
-  Places market orders to buy/sell based on confidence level from sentiment analysis.
+- 💹 **Automatic Buy/Sell Execution**  
+  Trades are only executed when confidence is high — reducing risk from noise.
 
-- 📊 **Rich Visualizations**  
-  Includes advanced plots like sentiment pie chart, word clouds, and price overlays for insight and presentation.
+- ⚙️ **LumiBot Strategy Integration**  
+  Strategy logic is written and demonstrated using LumiBot — a professional algo trading framework.
 
-- ⏱️ **Smart Decision Logic**  
-  Executes trades only when confidence > 90% — avoids noise and prevents false signals.
-
----
-
-## 📷 Sample Output
-
-| Sentiment Distribution | Word Cloud |
-|------------------------|------------|
-| ![Pie](assets/sentiment_pie.png) | ![WordCloud](assets/wordcloud.png) |
+- 📊 **Professional Visualizations**  
+  Includes sentiment pie charts, word clouds, price-sentiment overlays, and heatmaps.
 
 ---
 
-## 🛠️ Tech Stack
+## 🔧 Tools & Technologies
 
-| Tool           | Purpose                             |
-|----------------|-------------------------------------|
-| **Python**     | Core logic and execution            |
-| **FinBERT**    | Sentiment analysis using Transformers |
-| **Alpaca API** | Brokerage integration for trading   |
-| **Matplotlib / Seaborn** | Visual plots and insights |
-| **Jupyter Notebook** | Interactive development environment |
-| **LumiBot (Optional)** | Algo trading framework (explained but not used due to market hours) |
+| Tool         | Purpose                              |
+|--------------|---------------------------------------|
+| `FinBERT`    | News sentiment analysis               |
+| `Alpaca API` | Broker execution (paper trading)      |
+| `LumiBot`    | Strategy framework for trading logic  |
+| `Python`     | Main programming language             |
+| `Matplotlib`, `Seaborn` | Visualizations             |
+| `Jupyter Notebook` | Interactive development         |
 
 ---
 
-## 🧪 Strategy Logic
+## 🧠 Strategy Logic
 
 ```python
 if sentiment == "positive" and confidence > 0.90:
-    place_buy_order()
+    place_market_buy()
 elif sentiment == "negative" and confidence > 0.90:
-    place_sell_order()
+    place_market_sell()
 else:
     skip_trade()
