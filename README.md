@@ -51,3 +51,28 @@ Typical sections shown:
 🧪 **Example Interface View**:
 
 ![image](https://github.com/user-attachments/assets/e9697ab8-a6c8-487f-91e9-9d00b9f4079b)
+
+### 🧠 Workflow
+
+1. **🔍 Fetch News**  
+   Retrieves latest headlines for a given stock (e.g., `SPY`) via Alpaca API.
+
+2. **🧠 Analyze Sentiment**  
+   Uses `FinBERT` to classify each headline into:  
+   `positive`, `negative`, or `neutral`.
+
+3. **📈 Make Decisions**  
+   - If strong positive sentiment → **BUY**  
+   - If strong negative sentiment → **SELL**  
+   - Else → no trade
+
+4. **💼 Execute Orders**  
+   Trades are submitted using Alpaca’s paper trading API.
+
+5. **📊 Visualize**  
+   - Sentiment pie chart  
+   - Word cloud of headlines  
+   - Sentiment count bar plot
+
+6. **🤖 Optional LumiBot Mode**  
+   Demonstrates integration of LumiBot’s lifecycle methods in a basic `Strategy` class (run when U.S. markets are open).
